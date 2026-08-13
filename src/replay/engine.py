@@ -106,7 +106,6 @@ class ReplayEngine:
 
         for step in artifact.steps:
             step_num = step.step_number
-            self._screenshots.capture_before(page, step_num)
 
             # Check for known errors before executing the step.
             # Skip session_expired detection when we're legitimately at the
@@ -211,7 +210,7 @@ class ReplayEngine:
         if final_error:
             error_key, handler = final_error
             self._logger.log({"event": "final_error_detected", "error_key": error_key})
-            self._screenshots.capture_error(page, "final_state")
+            # The last step's after-screenshot already shows this page state
             return self._error_classifier.handle(error_key, handler, steps_total, self.run_dir, page)
 
         # Verify the success condition

@@ -114,8 +114,6 @@ def run_discovery(
                     screenshots.capture_error(page, "stuck")
                     break
 
-                screenshots.capture_before(page, step)
-
                 # DECIDE
                 action_dict = planner.decide(
                     goal=effective_goal,
