@@ -31,7 +31,9 @@ def cmd_discover(args: argparse.Namespace) -> None:
     from src.agent.loop import run_discovery
 
     run_id = str(uuid.uuid4())[:8]
-    run_dir = str(Path(args.output).parent)
+    output = args.output or f"evidence/discovery_run_{run_id}/artifact.json"
+    args.output = output
+    run_dir = str(Path(output).parent)
 
     print(f"[Discovery] Goal     : {args.goal}")
     print(f"[Discovery] Target   : {args.target}")
@@ -69,7 +71,7 @@ def cmd_replay(args: argparse.Namespace) -> None:
             sys.exit(1)
 
     run_id = str(uuid.uuid4())[:8]
-    output_dir = args.output.rstrip("/")
+    output_dir = (args.output or f"evidence/replay_run_{run_id}").rstrip("/")
     Path(output_dir).mkdir(parents=True, exist_ok=True)
 
     store = ArtifactStore()
@@ -117,14 +119,14 @@ def main() -> None:
     discover_parser = sub.add_parser("discover", help="Run LLM-guided discovery")
     discover_parser.add_argument("--goal", required=True, help="Natural language goal")
     discover_parser.add_argument("--target", required=True, help="Starting URL")
-    discover_parser.add_argument("--output", required=True, help="Path to save the artifact JSON")
+    discover_parser.add_argument("--output", default=None, help="Path to save the artifact JSON (auto-generated if omitted)")
     discover_parser.add_argument("--credentials", default=None, help="Login credentials as user:pass (never logged)")
 
     # replay sub-command
     replay_parser = sub.add_parser("replay", help="Replay a saved capability artifact")
     replay_parser.add_argument("--artifact", required=True, help="Path to artifact JSON")
     replay_parser.add_argument("--params", default="{}", help="JSON string of runtime parameters")
-    replay_parser.add_argument("--output", required=True, help="Directory to save evidence")
+    replay_parser.add_argument("--output", default=None, help="Directory to save evidence (auto-generated if omitted)")
 
     args = parser.parse_args()
 

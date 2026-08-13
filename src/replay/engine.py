@@ -77,7 +77,7 @@ class ReplayEngine:
         result.steps_total = steps_total
         result.evidence_path = self.run_dir
 
-        if result.status in {"hard_failure", "escalated"}:
+        if result.status in {"hard_failure", "escalated", "business_outcome"}:
             self._evidence.save_error_report(result.model_dump(mode="json"))
 
         return result
