@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CU Portal - System Error</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+  <div class="wrapper">
+    <div class="inner-wrapper">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>
+            <div class="nav-bar">
+              <table width="100%">
+                <tr>
+                  <td>
+                    <a href="/search" class="nav-link" aria-label="Back to member search">&#8592; Member Search</a>
+                  </td>
+                  <td align="right">
+                    <a href="/logout" class="nav-link" aria-label="Log out of portal">Logout</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-section">
+              <table width="100%" cellpadding="8">
+                <tr>
+                  <td>
+                    <div class="section-header">
+                      <span>System Notice</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="msg-error" role="alert" aria-label="System error message">
+                      <span>{{ message }}</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="/search" class="btn btn-primary" aria-label="Return to search page">Return to Search</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

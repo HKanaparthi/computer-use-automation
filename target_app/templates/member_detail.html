@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CU Portal - Member Detail</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+  <div class="wrapper">
+    <div class="inner-wrapper">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>
+            <div class="nav-bar">
+              <table width="100%">
+                <tr>
+                  <td>
+                    <a href="/search" class="nav-link" aria-label="Back to member search">&#8592; Member Search</a>
+                  </td>
+                  <td align="right">
+                    <a href="/logout" class="nav-link" aria-label="Log out of portal">Logout</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+
+        {% if permission_denied %}
+        <tr>
+          <td>
+            <div class="form-section">
+              <table width="100%" cellpadding="8">
+                <tr>
+                  <td>
+                    <div class="section-header" aria-label="Member detail header">
+                      <span>Member Detail</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="msg-error" role="alert" aria-label="Permission denied message">
+                      <span><strong>Access Denied</strong> — This member account (ID: {{ member_id }}) is flagged as restricted. You do not have permission to view this record. Please contact your supervisor.</span>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        {% else %}
+        <tr>
+          <td>
+            <div class="form-section">
+              <table width="100%" cellpadding="8">
+                <tr>
+                  <td colspan="2">
+                    <div class="section-header" aria-label="Member detail header">
+                      <span>Member Detail</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="detail-block" aria-label="Member information panel">
+                      <table class="detail-table" width="100%" cellpadding="6">
+                        <tr>
+                          <td class="detail-label">Member Name</td>
+                          <td>
+                            <div class="detail-value">
+                              <span aria-label="Member name">{{ member.name }}</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="detail-label">Member ID</td>
+                          <td>
+                            <div class="detail-value">
+                              <span aria-label="Member ID">{{ member_id }}</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="detail-label">Account Type</td>
+                          <td>
+                            <div class="detail-value">
+                              <span aria-label="Account type">{{ member.account_type }}</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="detail-label">Savings Balance</td>
+                          <td>
+                            <div class="detail-value">
+                              <span aria-label="Savings balance">{{ member.savings }}</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="detail-label">Checking Balance</td>
+                          <td>
+                            <div class="detail-value">
+                              <span aria-label="Checking balance">{{ member.checking }}</span>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="action-row" aria-label="Available account actions">
+                      <table cellpadding="4">
+                        <tr>
+                          <td>
+                            <a
+                              href="/member/{{ member_id }}/open-subaccount"
+                              class="btn btn-action"
+                              aria-label="Open sub-account for this member"
+                            >Open Sub-Account</a>
+                          </td>
+                          <td>
+                            <a
+                              href="#"
+                              class="btn btn-secondary"
+                              aria-label="Update member contact information"
+                            >Update Contact Info</a>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        {% endif %}
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

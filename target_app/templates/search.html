@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CU Portal - Member Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+  <div class="wrapper">
+    <div class="inner-wrapper">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>
+            <div class="nav-bar">
+              <table width="100%">
+                <tr>
+                  <td>
+                    <span class="portal-title-small">CU Member Services</span>
+                  </td>
+                  <td align="right">
+                    <a href="/logout" class="nav-link" aria-label="Log out of portal">Logout</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-section">
+              <table width="100%" cellpadding="8">
+                <tr>
+                  <td>
+                    <div class="section-header">
+                      <span>Member Lookup</span>
+                    </div>
+                  </td>
+                </tr>
+                {% if not_found %}
+                <tr>
+                  <td>
+                    <div class="msg-warning" role="alert" aria-label="Member not found message">
+                      <span>No member found with ID: <strong>{{ searched_id }}</strong>. Please verify the member ID and try again.</span>
+                    </div>
+                  </td>
+                </tr>
+                {% endif %}
+                <tr>
+                  <td>
+                    <form method="POST" action="/search">
+                      <table width="100%" cellpadding="6">
+                        <tr>
+                          <td width="30%">
+                            <div class="field-label-wrap">
+                              <label for="member-id-field" class="field-label">Member ID</label>
+                            </div>
+                          </td>
+                          <td>
+                            <div class="input-wrapper">
+                              <input
+                                type="text"
+                                id="member-id-field"
+                                name="member_id"
+                                class="input-field"
+                                aria-label="Member ID search field"
+                                placeholder="Enter 5-digit Member ID"
+                              />
+                            </div>
+                          </td>
+                          <td width="20%">
+                            <button
+                              type="submit"
+                              class="btn btn-search"
+                              aria-label="Search for member"
+                            >Search</button>
+                          </td>
+                        </tr>
+                      </table>
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="hint-text">
+                      <span>Enter the 5-digit member ID printed on the member card or account statement.</span>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

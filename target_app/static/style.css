@@ -1,0 +1,262 @@
+/* CU Portal Styles - Legacy banking portal aesthetic */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    background-color: #e8e8e8;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: #e8e8e8;
+    padding: 20px 0;
+}
+
+.wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    background: #f4f4f4;
+    border: 1px solid #bbb;
+}
+
+.inner-wrapper {
+    padding: 0;
+}
+
+.header-block {
+    background: #003366;
+    color: #fff;
+    padding: 16px 20px;
+}
+
+.portal-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    display: block;
+}
+
+.portal-subtitle {
+    font-size: 12px;
+    color: #aac4e4;
+    display: block;
+    margin-top: 4px;
+}
+
+.portal-title-small {
+    font-size: 14px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.nav-bar {
+    background: #dce8f4;
+    border-bottom: 2px solid #003366;
+    padding: 8px 16px;
+}
+
+.nav-link {
+    color: #003366;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.form-section {
+    background: #fff;
+    margin: 16px;
+    padding: 12px;
+    border: 1px solid #ccc;
+}
+
+.section-header {
+    background: #003366;
+    color: #fff;
+    padding: 6px 10px;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.field-label {
+    font-size: 12px;
+    color: #333;
+    font-weight: bold;
+}
+
+.field-label-wrap {
+    padding-top: 2px;
+}
+
+.input-wrapper {
+    display: inline-block;
+}
+
+.input-field {
+    width: 200px;
+    padding: 4px 6px;
+    border: 1px solid #888;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    background: #fff;
+}
+
+.input-field:focus {
+    border-color: #003366;
+    outline: 1px solid #003366;
+}
+
+.btn {
+    padding: 5px 16px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    border: 1px solid #555;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background: #003366;
+    color: #fff;
+    border-color: #002244;
+}
+
+.btn-primary:hover {
+    background: #004488;
+}
+
+.btn-search {
+    background: #336699;
+    color: #fff;
+    border-color: #224466;
+}
+
+.btn-search:hover {
+    background: #447799;
+}
+
+.btn-action {
+    background: #005500;
+    color: #fff;
+    border-color: #003300;
+}
+
+.btn-action:hover {
+    background: #006600;
+}
+
+.btn-secondary {
+    background: #667788;
+    color: #fff;
+    border-color: #445566;
+}
+
+.btn-cancel {
+    background: #888;
+    color: #fff;
+    border-color: #666;
+}
+
+.btn-row {
+    padding-top: 4px;
+}
+
+.msg-error {
+    background: #ffeeee;
+    border: 1px solid #cc3333;
+    color: #880000;
+    padding: 8px 12px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.msg-warning {
+    background: #fff8e1;
+    border: 1px solid #cc9900;
+    color: #665500;
+    padding: 8px 12px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.msg-success {
+    background: #eeffee;
+    border: 1px solid #338833;
+    color: #225522;
+    padding: 8px 12px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.detail-block {
+    border: 1px solid #ccc;
+    background: #fafafa;
+    padding: 8px;
+    margin-bottom: 12px;
+}
+
+.detail-table {
+    width: 100%;
+}
+
+.detail-label {
+    font-weight: bold;
+    font-size: 12px;
+    color: #444;
+    width: 35%;
+    background: #eeeeee;
+    padding: 5px 8px;
+    border-right: 1px solid #ddd;
+}
+
+.detail-value {
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+.action-row {
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+}
+
+.confirm-block {
+    background: #f8f8e8;
+    border: 1px solid #cccc88;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+.confirm-msg {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.confirm-detail {
+    margin-left: 16px;
+}
+
+.hint-text {
+    font-size: 11px;
+    color: #666;
+    padding: 4px 0;
+    font-style: italic;
+}
+
+.footer-note {
+    background: #dce8f4;
+    border-top: 1px solid #bbb;
+    padding: 8px 16px;
+    font-size: 11px;
+    color: #445566;
+    text-align: center;
+}

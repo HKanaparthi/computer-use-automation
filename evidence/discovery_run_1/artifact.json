@@ -1,0 +1,300 @@
+{
+  "name": "look_up_member_and",
+  "version": "1.0.0",
+  "description": "Look up member 12345 and read their savings balance",
+  "created_at": "2026-08-13T21:09:45.803755",
+  "discovered_from": "http://127.0.0.1:5001/login",
+  "input_params": {
+    "member_id": {
+      "type": "string",
+      "required": true,
+      "description": "Input member_id",
+      "example": "12345"
+    }
+  },
+  "output_schema": {
+    "member_id": {
+      "type": "string",
+      "description": "Extracted member_id",
+      "extract_from": "member_id"
+    },
+    "member_name": {
+      "type": "string",
+      "description": "Extracted member_name",
+      "extract_from": "member_name"
+    },
+    "account_type": {
+      "type": "string",
+      "description": "Extracted account_type",
+      "extract_from": "account_type"
+    },
+    "savings_balance": {
+      "type": "string",
+      "description": "Extracted savings_balance",
+      "extract_from": "savings_balance"
+    }
+  },
+  "entry_url": "http://127.0.0.1:5001/login",
+  "steps": [
+    {
+      "step_number": 1,
+      "action": "type",
+      "locator": {
+        "primary": {
+          "strategy": "css_selector",
+          "value": "input[name='username']",
+          "description": "Username input field"
+        },
+        "fallbacks": [
+          {
+            "strategy": "text_content",
+            "value": "Username",
+            "description": "Text content fallback"
+          }
+        ],
+        "reasoning": "Primary accessibility label from discovery run"
+      },
+      "input_template": "admin",
+      "checkpoint": {
+        "type": "element_visible",
+        "locator": null,
+        "expected": "Username field should contain 'admin'",
+        "description": "Username field should contain 'admin'"
+      },
+      "timeout_ms": 5000,
+      "is_reversible": true,
+      "error_handlers": {
+        "session_timeout": {
+          "detect": "Sign In",
+          "classification": "recoverable",
+          "action": "re_login",
+          "message": "Session expired; re-authenticating and retrying from last checkpoint"
+        },
+        "system_error": {
+          "detect": "Unexpected system error",
+          "classification": "recoverable",
+          "action": "retry",
+          "message": "Transient system error; retrying the step"
+        },
+        "element_missing": {
+          "detect": "",
+          "classification": "hard_failure",
+          "action": "escalate",
+          "message": "Target input field not found; locator may be stale after UI update"
+        }
+      }
+    },
+    {
+      "step_number": 2,
+      "action": "type",
+      "locator": {
+        "primary": {
+          "strategy": "css_selector",
+          "value": "input[name='password']",
+          "description": "Password input field"
+        },
+        "fallbacks": [
+          {
+            "strategy": "text_content",
+            "value": "Password",
+            "description": "Text content fallback"
+          }
+        ],
+        "reasoning": "Primary accessibility label from discovery run"
+      },
+      "input_template": "admin123",
+      "checkpoint": {
+        "type": "element_visible",
+        "locator": null,
+        "expected": "Password field should contain the password",
+        "description": "Password field should contain the password"
+      },
+      "timeout_ms": 5000,
+      "is_reversible": true,
+      "error_handlers": {
+        "session_timeout": {
+          "detect": "Sign In",
+          "classification": "recoverable",
+          "action": "re_login",
+          "message": "Session expired; re-authenticating and retrying from last checkpoint"
+        },
+        "system_error": {
+          "detect": "Unexpected system error",
+          "classification": "recoverable",
+          "action": "retry",
+          "message": "Transient system error; retrying the step"
+        },
+        "element_missing": {
+          "detect": "",
+          "classification": "hard_failure",
+          "action": "escalate",
+          "message": "Target input field not found; locator may be stale after UI update"
+        }
+      }
+    },
+    {
+      "step_number": 3,
+      "action": "click",
+      "locator": {
+        "primary": {
+          "strategy": "text_content",
+          "value": "Sign In",
+          "description": "Sign In button"
+        },
+        "fallbacks": [
+          {
+            "strategy": "text_content",
+            "value": "Sign In",
+            "description": "Text content fallback"
+          }
+        ],
+        "reasoning": "The button text is 'Sign In' which is stable"
+      },
+      "input_template": "",
+      "checkpoint": {
+        "type": "element_visible",
+        "locator": null,
+        "expected": "Should be redirected to the dashboard or member search page after login",
+        "description": "Should be redirected to the dashboard or member search page after login"
+      },
+      "timeout_ms": 5000,
+      "is_reversible": true,
+      "error_handlers": {
+        "session_timeout": {
+          "detect": "Sign In",
+          "classification": "recoverable",
+          "action": "re_login",
+          "message": "Session expired; re-authenticating and retrying from last checkpoint"
+        },
+        "system_error": {
+          "detect": "Unexpected system error",
+          "classification": "recoverable",
+          "action": "retry",
+          "message": "Transient system error; retrying the step"
+        }
+      }
+    },
+    {
+      "step_number": 4,
+      "action": "type",
+      "locator": {
+        "primary": {
+          "strategy": "css_selector",
+          "value": "input[name='member_id']",
+          "description": "Member ID input field"
+        },
+        "fallbacks": [
+          {
+            "strategy": "text_content",
+            "value": "Member ID",
+            "description": "Text content fallback"
+          }
+        ],
+        "reasoning": "The form has a Member ID input field"
+      },
+      "input_template": "{{member_id}}",
+      "checkpoint": {
+        "type": "element_visible",
+        "locator": null,
+        "expected": "Member ID field should contain '12345'",
+        "description": "Member ID field should contain '12345'"
+      },
+      "timeout_ms": 5000,
+      "is_reversible": true,
+      "error_handlers": {
+        "session_timeout": {
+          "detect": "Sign In",
+          "classification": "recoverable",
+          "action": "re_login",
+          "message": "Session expired; re-authenticating and retrying from last checkpoint"
+        },
+        "system_error": {
+          "detect": "Unexpected system error",
+          "classification": "recoverable",
+          "action": "retry",
+          "message": "Transient system error; retrying the step"
+        },
+        "element_missing": {
+          "detect": "",
+          "classification": "hard_failure",
+          "action": "escalate",
+          "message": "Target input field not found; locator may be stale after UI update"
+        }
+      }
+    },
+    {
+      "step_number": 5,
+      "action": "click",
+      "locator": {
+        "primary": {
+          "strategy": "text_content",
+          "value": "Search",
+          "description": "Search button"
+        },
+        "fallbacks": [
+          {
+            "strategy": "text_content",
+            "value": "Search",
+            "description": "Text content fallback"
+          }
+        ],
+        "reasoning": "The search button with text 'Search' submits the form"
+      },
+      "input_template": "",
+      "checkpoint": {
+        "type": "element_visible",
+        "locator": null,
+        "expected": "Should see member details page for member 12345",
+        "description": "Should see member details page for member 12345"
+      },
+      "timeout_ms": 5000,
+      "is_reversible": true,
+      "error_handlers": {
+        "session_timeout": {
+          "detect": "Sign In",
+          "classification": "recoverable",
+          "action": "re_login",
+          "message": "Session expired; re-authenticating and retrying from last checkpoint"
+        },
+        "system_error": {
+          "detect": "Unexpected system error",
+          "classification": "recoverable",
+          "action": "retry",
+          "message": "Transient system error; retrying the step"
+        }
+      }
+    }
+  ],
+  "success_condition": {
+    "type": "text_present",
+    "locator": null,
+    "expected": "savings_balance",
+    "description": "Extracted data is present in the page state"
+  },
+  "known_errors": {
+    "member_not_found": {
+      "detect": "No member found",
+      "classification": "business_outcome",
+      "action": "report",
+      "message": "Member ID does not exist in the system"
+    },
+    "permission_denied": {
+      "detect": "Access Denied",
+      "classification": "hard_failure",
+      "action": "escalate",
+      "message": "Insufficient permissions to access this member record"
+    },
+    "session_expired": {
+      "detect": "Sign In",
+      "classification": "recoverable",
+      "action": "re_login",
+      "message": "Session cookie expired; re-login required"
+    }
+  },
+  "allowed_domains": [
+    "127.0.0.1:5001"
+  ],
+  "requires_confirmation": false,
+  "sensitivity_level": "read_only",
+  "target_app_fingerprint": null
+}

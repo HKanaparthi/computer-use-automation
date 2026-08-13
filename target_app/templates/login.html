@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CU Portal - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+  <div class="wrapper">
+    <div class="inner-wrapper">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>
+            <div class="header-block">
+              <table width="100%">
+                <tr>
+                  <td>
+                    <span class="portal-title">Community First Credit Union</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="portal-subtitle">Member Services Portal</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="form-section">
+              <table width="100%" cellpadding="8">
+                <tr>
+                  <td colspan="2">
+                    <div class="section-header">
+                      <span>Staff Login</span>
+                    </div>
+                  </td>
+                </tr>
+                {% if error %}
+                <tr>
+                  <td colspan="2">
+                    <div class="msg-error" role="alert" aria-label="Login error message">
+                      <span>{{ error }}</span>
+                    </div>
+                  </td>
+                </tr>
+                {% endif %}
+                <tr>
+                  <td>
+                    <form method="POST" action="/login">
+                      <table width="100%" cellpadding="6">
+                        <tr>
+                          <td width="35%">
+                            <label for="username-field" class="field-label">Username</label>
+                          </td>
+                          <td>
+                            <div class="input-wrapper">
+                              <input
+                                type="text"
+                                id="username-field"
+                                name="username"
+                                class="input-field"
+                                aria-label="Username"
+                                autocomplete="username"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <label for="password-field" class="field-label">Password</label>
+                          </td>
+                          <td>
+                            <div class="input-wrapper">
+                              <input
+                                type="password"
+                                id="password-field"
+                                name="password"
+                                class="input-field"
+                                aria-label="Password"
+                                autocomplete="current-password"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td>
+                            <div class="btn-row">
+                              <button
+                                type="submit"
+                                class="btn btn-primary"
+                                aria-label="Sign in to portal"
+                              >Sign In</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </table>
+                    </form>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="footer-note">
+              <span>Authorized personnel only. All access is monitored and logged.</span>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>

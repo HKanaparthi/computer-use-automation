@@ -1,0 +1,15 @@
+{
+  "status": "hard_failure",
+  "outputs": null,
+  "business_outcome": null,
+  "error": {
+    "code": "PERMISSION_DENIED",
+    "message": "Insufficient permissions to access this member record",
+    "step": 5,
+    "page_url": "http://127.0.0.1:5001/member/88888"
+  },
+  "steps_completed": 5,
+  "steps_total": 5,
+  "evidence_path": "evidence/replay_escalation_1",
+  "duration_ms": 2308
+}

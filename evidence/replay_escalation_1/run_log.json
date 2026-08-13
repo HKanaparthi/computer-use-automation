@@ -1,0 +1,112 @@
+[
+  {
+    "timestamp": "2026-08-13T21:15:36.960197+00:00",
+    "run_id": "59ab541e",
+    "event": "replay_start",
+    "url": "http://127.0.0.1:5001/login",
+    "params": {
+      "member_id": "88888"
+    }
+  },
+  {
+    "timestamp": "2026-08-13T21:15:37.273302+00:00",
+    "run_id": "59ab541e",
+    "event": "step_executed",
+    "step": 1,
+    "action": "type",
+    "locator": "Username input field",
+    "input": "admin",
+    "success": true,
+    "url": "http://127.0.0.1:5001/login"
+  },
+  {
+    "timestamp": "2026-08-13T21:15:37.273468+00:00",
+    "run_id": "59ab541e",
+    "event": "checkpoint",
+    "step": 1,
+    "passed": true,
+    "detail": "No locator specified for checkpoint \u2014 skipped"
+  },
+  {
+    "timestamp": "2026-08-13T21:15:37.538387+00:00",
+    "run_id": "59ab541e",
+    "event": "step_executed",
+    "step": 2,
+    "action": "type",
+    "locator": "Password input field",
+    "input": "admin123",
+    "success": true,
+    "url": "http://127.0.0.1:5001/login"
+  },
+  {
+    "timestamp": "2026-08-13T21:15:37.538570+00:00",
+    "run_id": "59ab541e",
+    "event": "checkpoint",
+    "step": 2,
+    "passed": true,
+    "detail": "No locator specified for checkpoint \u2014 skipped"
+  },
+  {
+    "timestamp": "2026-08-13T21:15:37.870296+00:00",
+    "run_id": "59ab541e",
+    "event": "step_executed",
+    "step": 3,
+    "action": "click",
+    "locator": "Sign In button",
+    "input": "",
+    "success": true,
+    "url": "http://127.0.0.1:5001/search"
+  },
+  {
+    "timestamp": "2026-08-13T21:15:37.870485+00:00",
+    "run_id": "59ab541e",
+    "event": "checkpoint",
+    "step": 3,
+    "passed": true,
+    "detail": "No locator specified for checkpoint \u2014 skipped"
+  },
+  {
+    "timestamp": "2026-08-13T21:15:38.138586+00:00",
+    "run_id": "59ab541e",
+    "event": "step_executed",
+    "step": 4,
+    "action": "type",
+    "locator": "Member ID input field",
+    "input": "88888",
+    "success": true,
+    "url": "http://127.0.0.1:5001/search"
+  },
+  {
+    "timestamp": "2026-08-13T21:15:38.138807+00:00",
+    "run_id": "59ab541e",
+    "event": "checkpoint",
+    "step": 4,
+    "passed": true,
+    "detail": "No locator specified for checkpoint \u2014 skipped"
+  },
+  {
+    "timestamp": "2026-08-13T21:15:38.470228+00:00",
+    "run_id": "59ab541e",
+    "event": "step_executed",
+    "step": 5,
+    "action": "click",
+    "locator": "Search button",
+    "input": "",
+    "success": true,
+    "url": "http://127.0.0.1:5001/member/88888"
+  },
+  {
+    "timestamp": "2026-08-13T21:15:38.470445+00:00",
+    "run_id": "59ab541e",
+    "event": "checkpoint",
+    "step": 5,
+    "passed": true,
+    "detail": "No locator specified for checkpoint \u2014 skipped"
+  },
+  {
+    "timestamp": "2026-08-13T21:15:38.472087+00:00",
+    "run_id": "59ab541e",
+    "event": "final_error_detected",
+    "error_key": "permission_denied"
+  }
+]

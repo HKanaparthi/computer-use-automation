@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CU Portal - Open Sub-Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+  <div class="wrapper">
+    <div class="inner-wrapper">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tr>
+          <td>
+            <div class="nav-bar">
+              <table width="100%">
+                <tr>
+                  <td>
+                    <a href="/member/{{ member_id }}" class="nav-link" aria-label="Back to member detail">&#8592; Back to Member</a>
+                  </td>
+                  <td align="right">
+                    <a href="/logout" class="nav-link" aria-label="Log out of portal">Logout</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+
+        {% if confirmed %}
+        <tr>
+          <td>
+            <div class="form-section">
+              <table width="100%" cellpadding="8">
+                <tr>
+                  <td>
+                    <div class="section-header">
+                      <span>Sub-Account Opened</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="msg-success" role="alert" aria-label="Sub-account success message">
+                      <span>A sub-account has been successfully opened for <strong>{{ member.name }}</strong> (ID: {{ member_id }}).</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <a href="/search" class="btn btn-primary" aria-label="Return to member search">Return to Search</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        {% else %}
+        <tr>
+          <td>
+            <div class="form-section">
+              <table width="100%" cellpadding="8">
+                <tr>
+                  <td colspan="2">
+                    <div class="section-header">
+                      <span>Confirm Action</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <div class="confirm-block" aria-label="Action confirmation panel">
+                      <div class="confirm-msg">
+                        <span>You are about to open a sub-account for:</span>
+                      </div>
+                      <div class="confirm-detail">
+                        <table cellpadding="4">
+                          <tr>
+                            <td class="detail-label">Name:</td>
+                            <td><span aria-label="Member name for confirmation">{{ member.name }}</span></td>
+                          </tr>
+                          <tr>
+                            <td class="detail-label">Member ID:</td>
+                            <td><span>{{ member_id }}</span></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <form method="POST" action="/member/{{ member_id }}/open-subaccount">
+                      <table cellpadding="6">
+                        <tr>
+                          <td>
+                            <button
+                              type="submit"
+                              name="action"
+                              value="confirm"
+                              class="btn btn-primary"
+                              aria-label="Confirm opening sub-account"
+                            >Confirm</button>
+                          </td>
+                          <td>
+                            <button
+                              type="submit"
+                              name="action"
+                              value="cancel"
+                              class="btn btn-cancel"
+                              aria-label="Cancel and return to member detail"
+                            >Cancel</button>
+                          </td>
+                        </tr>
+                      </table>
+                    </form>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </td>
+        </tr>
+        {% endif %}
+      </table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
