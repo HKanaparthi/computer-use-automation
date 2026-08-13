@@ -1,5 +1,7 @@
 # Computer-Use Automation System
 
+**Author:** Harsha Kanaparthi
+
 An AI-driven browser automation framework that lets language models discover how to navigate legacy UIs and then replay those flows deterministically without the model.
 
 ## What it does
@@ -16,7 +18,7 @@ An AI-driven browser automation framework that lets language models discover how
 ## Setup
 
 ```bash
-git clone (https://github.com/HKanaparthi/computer-use-automation)
+git clone https://github.com/HKanaparthi/computer-use-automation
 cd computer-use-automation
 
 # Create virtual environment

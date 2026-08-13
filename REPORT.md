@@ -1,5 +1,7 @@
 # Design Report — Computer-Use Automation System
 
+**Author:** Harsha Kanaparthi
+
 ---
 
 ## 1. Architecture
