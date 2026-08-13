@@ -16,7 +16,7 @@ An AI-driven browser automation framework that lets language models discover how
 ## Setup
 
 ```bash
-git clone <repo-url>
+git clone (https://github.com/HKanaparthi/computer-use-automation)
 cd computer-use-automation
 
 # Create virtual environment
